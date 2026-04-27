@@ -1,0 +1,5 @@
+{
+  "name": "Ibex Lounge - Premium Sports Bar & Lounge",
+  "description": "Upscale lounge and sports bar near Arsenal Stadium, London. Experience the perfect blend of Habesha culture, international cuisine, and vibrant nightlife.",
+  "requestFramePermissions": ["geolocation"]
+}

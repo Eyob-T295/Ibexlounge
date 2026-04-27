@@ -1,0 +1,88 @@
+{
+  "entities": {
+    "Match": {
+      "title": "Match",
+      "description": "A live or upcoming sports match shown in the lounge.",
+      "type": "object",
+      "properties": {
+        "home": { "type": "string", "description": "Home team name." },
+        "away": { "type": "string", "description": "Away team name." },
+        "time": { "type": "string", "description": "Match time (e.g., 'Sun 16:30')." },
+        "league": { "type": "string", "description": "League or competition name." },
+        "order": { "type": "number", "description": "Sort order." }
+      },
+      "required": ["home", "away", "time", "league"]
+    },
+    "Event": {
+      "title": "Event",
+      "description": "An upcoming event or nightlife night at the lounge.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "Event title." },
+        "date": { "type": "string", "description": "Event date or frequency (e.g., 'Every Friday')." },
+        "description": { "type": "string", "description": "Brief event description." },
+        "image": { "type": "string", "description": "URL to the event image." },
+        "order": { "type": "number", "description": "Sort order." }
+      },
+      "required": ["title", "date", "description", "image"]
+    },
+    "MenuItem": {
+      "title": "MenuItem",
+      "description": "An item on the food or drink menu.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "Item name." },
+        "desc": { "type": "string", "description": "Item description." },
+        "price": { "type": "string", "description": "Price (e.g., '£6.50')." },
+        "category": { "type": "string", "enum": ["starters", "habesha", "drinks"], "description": "Menu category." },
+        "image": { "type": "string", "description": "Optional image URL." },
+        "signature": { "type": "boolean", "description": "Whether it's a signature item." },
+        "popular": { "type": "boolean", "description": "Whether it's a popular item." },
+        "order": { "type": "number", "description": "Sort order." }
+      },
+      "required": ["name", "desc", "price", "category"]
+    },
+    "GalleryImage": {
+      "title": "GalleryImage",
+      "description": "An image displayed in the lounge gallery.",
+      "type": "object",
+      "properties": {
+        "src": { "type": "string", "description": "URL to the image." },
+        "alt": { "type": "string", "description": "Descriptive alt text." },
+        "order": { "type": "number", "description": "Sort order." }
+      },
+      "required": ["src", "alt"]
+    },
+    "Settings": {
+      "title": "Settings",
+      "description": "Global application settings.",
+      "type": "object",
+      "properties": {
+        "announcement": { "type": "string", "description": "Optional global announcement text." },
+        "isOpen": { "type": "boolean", "description": "Whether the lounge is currently open." }
+      }
+    }
+  },
+  "firestore": {
+    "matches": {
+      "schema": "Match",
+      "description": "Collection of sports matches."
+    },
+    "events": {
+      "schema": "Event",
+      "description": "Collection of upcoming events."
+    },
+    "menu": {
+      "schema": "MenuItem",
+      "description": "Collection of menu items."
+    },
+    "gallery": {
+      "schema": "GalleryImage",
+      "description": "Collection of gallery images."
+    },
+    "settings/global": {
+      "schema": "Settings",
+      "description": "Global configuration document."
+    }
+  }
+}
